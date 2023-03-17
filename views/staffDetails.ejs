@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Staff Details</title>
+  </head>
+  <body>
+    <h1>Edit Staff Details</h1>
+    <form action="/staff/<%= staff._id %>?_method=PUT" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="<%= staff.name %>" required>
+      <br>
+      <label for="staffId">Staff ID:</label>
+      <input type="text" name="staffId" value="<%= staff.staffId %>" required>
+      <br>
+      <button type="submit">Update</button>
+    </form>
+    <br>
+    <form action="/staff/<%= staff._id %>?_method=DELETE" method="POST" >
+      <button type="submit">Delete</button>
+    </form>
+  </body>
+</html>
+

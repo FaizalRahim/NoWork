@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Staff Management</title>
+  </head>
+  <body>
+    <h1>New Staff</h1>
+    <form method="POST" action="/staff">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required>
+      <br>
+      <label for="staffId">Staff ID:</label>
+      <input type="text" name="staffId" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+      <br>
+      <label for="adminAccess">Admin Access:</label>
+      <input type="checkbox" name="adminAccess" value="true">
+      <br>
+      <button type="submit">Submit</button>
+
+      <h1>All Staff</h1>
+    <ul>
+      <% staff.forEach(function(staff) { %>
+        <li>Name: <%= staff.name %></li>
+        <li>Staff ID: <%= staff.staffId %></li>
+        <a href="/staff/<%= staff._id %>">Click to update / Delete Staff</a>
+        <br>
+        <li>Leave Taken:</li>
+        <ul>
+          <% staff.leave.forEach(function(leave) { %>
+            <li>
+              Leave Type: <%= leave.leaveType.leaveType %>,
+              <br>
+              Start Date: <%= leave.startDate.toDateString() %>,
+              <br>
+              End Date: <%= leave.endDate.toDateString() %>
+              <br>
+              <br>
+
+            </li>
+          <% }); %>
+        </ul>
+      <% }); %>
+    </ul>
+  </body>
+</html>
+        
